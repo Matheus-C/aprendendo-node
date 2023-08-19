@@ -1,4 +1,7 @@
 const {Person} = require("./person");
 
-const per = new Person("Matheus");
+require("./modules/path");
+
+const per = new Person("felipe");
+
 console.log(per.sayMyName());
