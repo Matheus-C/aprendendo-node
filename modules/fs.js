@@ -28,7 +28,6 @@ fs.writeFile(path.join(__dirname, '/test', 'test.txt'), 'Hello World!!\n', (erro
             return console.log("erro:", error);
         }
         console.log('adicionado ao arquivo com sucesso!');
-    
 
         //ler arquivo
         fs.readFile(path.join(__dirname, '/test', '/test.txt'), 'utf-8', (error, data) => {
