@@ -5,6 +5,21 @@ const app = express();
 
 app.use(express.json());
 
+app.set("view engine", "ejs");
+app.set("views", "src/views");
+
+app.use((req, res, next)=>{
+    console.log(`Request type: ${req.method}`);
+    console.log(`Content type: ${req.headers["content-type"]}`);
+    console.log(`Date: ${new Date()}`);
+    next();
+});
+
+app.get("/views/users", async (req, res) => {
+    const users = await UserModel.find({});
+    res.render("index", {users: users});
+});
+
 app.get("/home", (req, res) => {
     res.status(200).send('<h1>home Page</h1>');
 });
